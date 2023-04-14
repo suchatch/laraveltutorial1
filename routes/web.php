@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+Route::get('/about', [AboutController::class,'index']);
+Route::get('/hi',[AboutController::class,'showhi']);
 
-Route::get('/member', function () {
-    return view('member.index');
-});
+Route::get('/admin', [AdminController::class,'index']);
+Route::get('/member', [MemberController::class,'index']);
