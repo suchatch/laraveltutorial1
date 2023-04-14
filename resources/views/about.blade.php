@@ -9,6 +9,10 @@
 <body>
     <h1>ยินดีต้อนรับเข้าสู่เว็บไชต์</h1>
     <p>Suchat charoenpon</p>
+    ที่อยู่ : {{$address}} <br>
+    เบอร์โทร : {{$tel}} <br>
+    email : {{$email}}
+    <br>
     <a href="{{url('/')}}">Home</a>
     <a href="{{route('admin')}}">Admin</a>
     <a href="{{route('member')}}">Member</a>

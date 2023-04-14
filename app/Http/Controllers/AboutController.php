@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    function index(){
-        return view('about');
+    function index()
+    {
+        $address = "9/23 อ่อนนุช21";
+        $tel = "0800716943";
+        $email = "charoenpon@hotmail.com";
+        return view('about', ['address' => $address, 'tel' => $tel, 'email' => $email]);
     }
 }
