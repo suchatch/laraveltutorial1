@@ -11,6 +11,9 @@ class AboutController extends Controller
         $address = "9/23 อ่อนนุช21";
         $tel = "0800716943";
         $email = "charoenpon@hotmail.com";
-        return view('about', compact('address','tel','email'));
+        return view('about')
+            ->with('address', $address)
+            ->with('tel', $tel)
+            ->with('email', $email);
     }
 }
