@@ -23,7 +23,7 @@
                         <th scope="row">{{$i++}}</th>
                         <td>{{$row->name}}</td>
                         <td>{{$row->email}}</td>
-                        <td>{{$row->created_at}}</td>
+                        <td>{{$row->created_at->diffForHumans()}}</td>
                     </tr>
                     @endforeach
                 </tbody>
