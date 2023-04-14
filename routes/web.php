@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -36,3 +37,5 @@ Route::middleware([
         return view('dashboard',compact('users'));
     })->name('dashboard');
 });
+
+Route::get('/department/all',[DepartmentController::class,'index'])->name('department');
