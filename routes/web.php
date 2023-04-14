@@ -20,8 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', [AboutController::class,'index']);
-Route::get('/hi',[AboutController::class,'showhi']);
+Route::get('/about', [AboutController::class,'index'])->name('about');
 
-Route::get('/admin', [AdminController::class,'index']);
-Route::get('/member', [MemberController::class,'index']);
+Route::get('/admin', [AdminController::class,'index'])->name('admin');
+Route::get('/member', [MemberController::class,'index'])->name('member');

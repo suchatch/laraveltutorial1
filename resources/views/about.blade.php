@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    He
+    <h1>ยินดีต้อนรับเข้าสู่เว็บไชต์</h1>
+    <p>Suchat charoenpon</p>
+    <a href="{{url('/')}}">Home</a>
+    <a href="{{route('admin')}}">Admin</a>
+    <a href="{{route('member')}}">Member</a>
+    <a href="{{route('about')}}">About</a>
 </body>
 </html>

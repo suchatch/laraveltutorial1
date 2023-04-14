@@ -9,8 +9,4 @@ class AboutController extends Controller
     function index(){
         return view('about');
     }
-
-    function showHi(){
-        echo "Hi";
-    }
 }
