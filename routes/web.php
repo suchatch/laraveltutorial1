@@ -24,3 +24,13 @@ Route::get('/about', [AboutController::class,'index'])->name('about');
 
 Route::get('/admin', [AdminController::class,'index'])->name('admin')->middleware('check');
 Route::get('/member', [MemberController::class,'index'])->name('member');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
