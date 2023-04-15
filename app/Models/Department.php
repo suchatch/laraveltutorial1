@@ -16,7 +16,5 @@ class Department extends Model
         'department_name',
     ];
 
-    public function user(){
-        return $this->hasOne(user::class,'id','user_id');
-    }
+
 }

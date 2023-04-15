@@ -28,7 +28,7 @@
                                 <tr>
                                     <th>{{$departments->firstItem()+$loop->index}}</th>
                                     <td>{{$row->department_name}}</td>
-                                    <td>{{$row->user->name}}</td>
+                                    <td>{{$row->name}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
