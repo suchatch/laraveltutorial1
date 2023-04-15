@@ -14,7 +14,7 @@ class DepartmentController extends Controller
         $departments = DB::table('departments')
         ->join('users','departments.user_id','users.id')
         ->select('departments.*','users.name')->paginate(3);
-        
+
         return view('admin.department.index',compact('departments'));
     }
 
@@ -37,5 +37,10 @@ class DepartmentController extends Controller
         //query builder
         DB::table('departments')->insert($data);
         return redirect()->back()->with('success',"บันทึกข้อมูลเรียบร้อย");
+    }
+
+    public function edit($id){
+        $department = Department::find($id);
+        dd($department->department_name);
     }
 }

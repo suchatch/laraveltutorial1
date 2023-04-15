@@ -21,14 +21,16 @@
                                     <th scope="col">ลำดับ</th>
                                     <th scope="col">ชื่อแผนก</th>
                                     <th scope="col">UserID</th>
+                                    <th scope="col">Edit</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($departments as $row)
                                 <tr>
-                                    <th>{{$departments->firstItem()+$loop->index}}</th>
+                                    <td>{{$departments->firstItem()+$loop->index}}</td>
                                     <td>{{$row->department_name}}</td>
                                     <td>{{$row->name}}</td>
+                                    <td><a href="{{url('/department/edit/'.$row->id)}}" class="btn btn-primary">แก้ไข</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -52,7 +54,7 @@
                                 </div>
                                 @enderror
                                 <br>
-                                <input type="submit" value="บันทึก" class="btn btn-primary">
+                                <input type="submit" value="บันทึก" class="btn btn-primary" />
                             </form>
                         </div>
                     </div>
