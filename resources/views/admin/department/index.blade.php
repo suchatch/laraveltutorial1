@@ -15,6 +15,25 @@
                     @endif
                     <div class="card">
                         <div class="card-header">ตางรางข้อมูลแผนก</div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ลำดับ</th>
+                                    <th scope="col">ชื่อแผนก</th>
+                                    <th scope="col">UserID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php($i=1)
+                                @foreach($departments as $row)
+                                <tr>
+                                    <th>{{$i++}}</th>
+                                    <td>{{$row->department_name}}</td>
+                                    <td>{{$row->user_id}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="col-md-4">
