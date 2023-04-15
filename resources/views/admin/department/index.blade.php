@@ -38,6 +38,32 @@
                             </tbody>
                         </table>
                         {{$departments->links()}}
+                        <div class="card">
+                            <div class="card-header">ถังขยะ</div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ลำดับ</th>
+                                        <th scope="col">ชื่อแผนก</th>
+                                        <th scope="col">พนักงาน</th>
+                                        <th scope="col">กู้คืนข้อมูล</th>
+                                        <th scope="col">ลบข้อมูลถังขยะ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($trashDepartment as $row)
+                                    <tr>
+                                        <td>{{$trashDepartment->firstItem()+$loop->index}}</td>
+                                        <td>{{$row->department_name}}</td>
+                                        <td>{{$row->user->name}}</td>
+                                        <td><a href="{{url('/department/edit/'.$row->id)}}" class="btn btn-primary">กู้คืนข้อมูล</a></td>
+                                        <td><a href="{{url('/department/softdelete/'.$row->id)}}" class="btn btn-danger">ลบข้อมูลถังขยะ</a></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{$trashDepartment->links()}}
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
