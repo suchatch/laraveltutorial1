@@ -46,7 +46,7 @@
                     <div class="card">
                         <div class="card-header">แบบฟอร์ม</div>
                         <div class="card-body">
-                            <form action="#" method="post" enctype="multipart/form-data">
+                            <form action="{{route('addService')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="service_name">ชื่อบริการ</label>
@@ -61,6 +61,11 @@
                                     <label for="service_image">ภาพประกอบ</label>
                                     <input type="file" name="service_image" class="form-control">
                                 </div>
+                                @error('service_image')
+                                <div class="my-2">
+                                    <span class="text-danger">{{$message}}</span>
+                                </div>
+                                @enderror
                                 <br>
                                 <input type="submit" value="บันทึก" class="btn btn-primary" />
                             </form>
