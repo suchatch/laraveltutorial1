@@ -45,4 +45,5 @@ Route::middleware([
     Route::get('/department/all', [DepartmentController::class, 'index'])->name('department');
     Route::post('/department/add', [DepartmentController::class, 'store'])->name('addDepartment');
     Route::get('/department/edit/{id}',[DepartmentController::class,'edit'])->name('editDepartment');
+    Route::post('/department/update/{id}',[DepartmentController::class,'update'])->name('updateDepartment');
 });
