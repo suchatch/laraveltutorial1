@@ -48,4 +48,5 @@ Route::middleware([
     Route::post('/department/update/{id}',[DepartmentController::class,'update'])->name('updateDepartment');
     Route::get('/department/softdelete/{id}',[DepartmentController::class,'softdelete']);
     Route::get('/department/restore/{id}',[DepartmentController::class,'restore']);
+    Route::get('/department/delete/{id}',[DepartmentController::class,'delete']);
 });
