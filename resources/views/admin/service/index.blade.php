@@ -30,9 +30,9 @@
                                 @foreach($services as $row)
                                 <tr>
                                     <td>{{$services->firstItem()+$loop->index}}</td>
-                                    <td>{{$services->service_image}}</td>
+                                    <td>{{$row->service_image}}</td>
                                     <td>{{$row->service_name}}</td>
-                                    <td>{{$row->user->name}}</td>
+                                    <td>{{$row->created_at}}</td>
                                     <td><a href="{{url('/service/edit/'.$row->id)}}" class="btn btn-primary">แก้ไข</a></td>
                                     <td><a href="{{url('/service/softdelete/'.$row->id)}}" class="btn btn-danger">ลบ</a></td>
                                 </tr>

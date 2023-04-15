@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,8 +37,17 @@ class ServiceController extends Controller
         //ดึงนามสกุลไฟล์ภาพ
         $img_ext = strtolower($service_image->getClientOriginalExtension());
         $img_name = $name_gen . '.' . $img_ext;
-        dd($img_name);
-        //บันทึกข้อมูล
-        // return redirect()->back()->with('success',"บันทึกข้อมูลเรียบร้อย");
+        
+        //อัพโหลดและบันทึกข้อมูล
+        $upload_location = 'image/services/';
+        $full_path = $upload_location.$img_name;
+
+        Service::insert([
+            'service_name'=>$request->service_name,
+            'service_image'=>$full_path,
+            'created_at'=>Carbon::now()
+        ]);
+        $service_image->move($upload_location,$img_name);
+        return redirect()->back()->with('success',"บันทึกข้อมูลเรียบร้อย");
     }
 }
