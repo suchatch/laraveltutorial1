@@ -11,7 +11,7 @@ class DepartmentController extends Controller
 {
     public function index()
     {
-        $departments = DB::table('departments')->get();
+        $departments = Department::paginate(3);
         return view('admin.department.index',compact('departments'));
     }
 
