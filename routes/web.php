@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -42,10 +43,14 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
+    //Department
     Route::get('/department/all', [DepartmentController::class, 'index'])->name('department');
     Route::post('/department/add', [DepartmentController::class, 'store'])->name('addDepartment');
     Route::get('/department/edit/{id}',[DepartmentController::class,'edit'])->name('editDepartment');
     Route::post('/department/update/{id}',[DepartmentController::class,'update'])->name('updateDepartment');
     Route::get('/department/softdelete/{id}',[DepartmentController::class,'softdelete']);
     Route::get('/department/restore/{id}',[DepartmentController::class,'restore']);
+
+    //Service
+    Route::get('/service/all', [ServiceController::class, 'index'])->name('services');
 });
