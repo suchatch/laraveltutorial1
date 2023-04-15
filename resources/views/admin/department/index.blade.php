@@ -38,6 +38,7 @@
                             </tbody>
                         </table>
                         {{$departments->links()}}
+                        @if(count($trashDepartment) > 0)
                         <div class="card">
                             <div class="card-header">ถังขยะ</div>
                             <table class="table table-striped">
@@ -64,6 +65,7 @@
                             </table>
                             {{$trashDepartment->links()}}
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-4">
