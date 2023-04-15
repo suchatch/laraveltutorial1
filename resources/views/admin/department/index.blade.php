@@ -56,7 +56,7 @@
                                         <td>{{$trashDepartment->firstItem()+$loop->index}}</td>
                                         <td>{{$row->department_name}}</td>
                                         <td>{{$row->user->name}}</td>
-                                        <td><a href="{{url('/department/edit/'.$row->id)}}" class="btn btn-primary">กู้คืนข้อมูล</a></td>
+                                        <td><a href="{{url('/department/restore/'.$row->id)}}" class="btn btn-primary">กู้คืนข้อมูล</a></td>
                                         <td><a href="{{url('/department/softdelete/'.$row->id)}}" class="btn btn-danger">ลบข้อมูลถังขยะ</a></td>
                                     </tr>
                                     @endforeach
