@@ -30,7 +30,9 @@
                                 @foreach($services as $row)
                                 <tr>
                                     <td>{{$services->firstItem()+$loop->index}}</td>
-                                    <td>{{$row->service_image}}</td>
+                                    <td>
+                                        <img src="{{asset($row->service_image)}}" alt="" width="100px">
+                                    </td>
                                     <td>{{$row->service_name}}</td>
                                     <td>{{$row->created_at}}</td>
                                     <td><a href="{{url('/service/edit/'.$row->id)}}" class="btn btn-primary">แก้ไข</a></td>
