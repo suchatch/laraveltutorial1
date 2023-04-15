@@ -11,7 +11,7 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::paginate(5);
-        return view('admin.service.index',compact('services'));
+        return view('admin.service.index', compact('services'));
     }
 
     public function store(Request $request)
@@ -27,6 +27,16 @@ class ServiceController extends Controller
             'service_image.required' => "กรุณาใส่ประกอบการบริการ",
         ]);
 
+        //การเข้ารหัสรูปภาพ
+        $service_image = $request->file('service_image');
+
+        //Generate ชื่อภาพ
+        $name_gen = hexdec(uniqid());
+
+        //ดึงนามสกุลไฟล์ภาพ
+        $img_ext = strtolower($service_image->getClientOriginalExtension());
+        $img_name = $name_gen . '.' . $img_ext;
+        dd($img_name);
         //บันทึกข้อมูล
         // return redirect()->back()->with('success',"บันทึกข้อมูลเรียบร้อย");
     }
