@@ -20,7 +20,8 @@ class DepartmentController extends Controller
             'department_name' => 'required|unique:departments|max:255'
         ], [
             'department_name.required' => 'กรุณาป้อนชื่อ ชื่อแผนก',
-            'department_name.max' => 'ห้ามป้อนเกิน 255 ตัวอักษร'
+            'department_name.max' => 'ห้ามป้อนเกิน 255 ตัวอักษร',
+            'department_name.unique' => 'มีข้อมูลชื่อแผนกนี้ในฐานข้อมูลแล้ว'
         ]);
 
         //บันทึกข้อมูล
