@@ -24,10 +24,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php($i=1)
                                 @foreach($departments as $row)
                                 <tr>
-                                    <th>{{$i++}}</th>
+                                    <th>{{$departments->firstItem()+$loop->index}}</th>
                                     <td>{{$row->department_name}}</td>
                                     <td>{{$row->user_id}}</td>
                                 </tr>
