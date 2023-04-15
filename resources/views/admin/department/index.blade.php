@@ -22,6 +22,7 @@
                                     <th scope="col">ชื่อแผนก</th>
                                     <th scope="col">UserID</th>
                                     <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -29,8 +30,9 @@
                                 <tr>
                                     <td>{{$departments->firstItem()+$loop->index}}</td>
                                     <td>{{$row->department_name}}</td>
-                                    <td>{{$row->name}}</td>
+                                    <td>{{$row->user->name}}</td>
                                     <td><a href="{{url('/department/edit/'.$row->id)}}" class="btn btn-primary">แก้ไข</a></td>
+                                    <td><a href="{{url('/department/softdelete/'.$row->id)}}" class="btn btn-danger">ลบ</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
