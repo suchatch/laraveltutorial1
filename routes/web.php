@@ -22,10 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/about', [AboutController::class,'index'])->name('about');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-Route::get('/admin', [AdminController::class,'index'])->name('admin')->middleware('check');
-Route::get('/member', [MemberController::class,'index'])->name('member');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('check');
+Route::get('/member', [MemberController::class, 'index'])->name('member');
 
 Route::middleware([
     'auth:sanctum',
@@ -34,9 +34,14 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         $users = DB::table('users')->get();
-        return view('dashboard',compact('users'));
+        return view('dashboard', compact('users'));
     })->name('dashboard');
 });
-
-Route::get('/department/all',[DepartmentController::class,'index'])->name('department');
-Route::post('/department/add',[DepartmentController::class,'store'])->name('addDepartment');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/department/all', [DepartmentController::class, 'index'])->name('department');
+    Route::post('/department/add', [DepartmentController::class, 'store'])->name('addDepartment');
+});
