@@ -50,4 +50,9 @@ class ServiceController extends Controller
         $service_image->move($upload_location,$img_name);
         return redirect()->back()->with('success',"บันทึกข้อมูลเรียบร้อย");
     }
+
+    public function edit($id){
+        $service = Service::find($id);
+        return view('admin.service.edit',compact('service'));
+    }
 }

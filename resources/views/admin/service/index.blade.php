@@ -36,7 +36,7 @@
                                     <td>{{$row->service_name}}</td>
                                     <td>{{$row->created_at}}</td>
                                     <td><a href="{{url('/service/edit/'.$row->id)}}" class="btn btn-primary">แก้ไข</a></td>
-                                    <td><a href="{{url('/service/softdelete/'.$row->id)}}" class="btn btn-danger">ลบ</a></td>
+                                    <td><a href="{{url('/service/delete/'.$row->id)}}" class="btn btn-danger">ลบ</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
