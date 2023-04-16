@@ -55,4 +55,26 @@ class ServiceController extends Controller
         $service = Service::find($id);
         return view('admin.service.edit',compact('service'));
     }
+
+    public function update(Request $request, $id){
+        //ตรวจสอบข้อมูล
+        $request->validate([
+            'service_name' => 'required|max:255',
+            'service_image' => 'mimes:jpg,jpeg,png'
+        ], [
+            'service_name.required' => 'กรุณาป้อนชื่อ ชื่อบริการ',
+            'service_name.max' => 'ห้ามป้อนเกิน 255 ตัวอักษร'
+        ]);
+       //การเข้ารหัสรูปภาพ
+       $service_image = $request->file('service_image');
+
+       //อัพเดตภาพอย่างเดียว
+       if($service_image){
+        dd("มีการอัพเดตภาพ");
+       }else{
+        //อัพเดตชื่ออย่างเดียว
+        dd("มีการอัพเดตชื่อ");
+       }
+       
+    }
 }

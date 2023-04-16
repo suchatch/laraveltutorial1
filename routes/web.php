@@ -55,4 +55,5 @@ Route::middleware([
     Route::get('/service/all', [ServiceController::class, 'index'])->name('services');
     Route::post('/service/add', [ServiceController::class, 'store'])->name('addService');
     Route::get('/service/edit/{id}',[ServiceController::class,'edit']);
+    Route::post('/service/update/{id}',[ServiceController::class,'update']);
 });
